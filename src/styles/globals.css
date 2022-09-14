@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply focus:outline-none focus:shadow-outline focus:shadow-blue-500;
+}
