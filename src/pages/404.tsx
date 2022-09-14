@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { PrimaryLayout } from '../components/layouts/primary'
+import { NextPageWithLayout } from './page'
 
-export default function Custom404() {
+const Custom404: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -24,3 +26,5 @@ export default function Custom404() {
     </>
   )
 }
+Custom404.layout = PrimaryLayout
+export default Custom404

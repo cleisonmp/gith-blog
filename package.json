@@ -1,10 +1,10 @@
 {
-  "name": "nextjs-template",
+  "name": "github-blog",
   "author": "Cleison Pereira",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "homepage": "GIT_REPO_URL",
+  "homepage": "https://github.com/cleisonmp/gith-blog",
   "engines": {
     "node": ">=16.15.0",
     "yarn": ">=1.22.0",
@@ -20,7 +20,8 @@
   "dependencies": {
     "next": "^12.3.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@types/node": "18.7.14",

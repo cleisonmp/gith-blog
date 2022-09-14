@@ -1,29 +1,28 @@
-import { ReactElement } from 'react'
-import Link from 'next/link'
-import Image from 'next/future/image'
+//import { ReactElement } from 'react'
 
 import { NextPageWithLayout } from './page'
 import { PrimaryLayout } from '../components/layouts/primary/'
 
-import logo from '../../public/logo.svg'
+import { Profile } from '../components/common/Profile'
+import { SearchBox } from '../components/common/SearchBox'
+import { PostsList } from '../components/common/PostsList'
 
 const Home: NextPageWithLayout = () => {
   return (
-    <main className='flex flex-1 flex-col w-full max-w-4xl mx-auto items-center'>
-      <Link href='/'>
-        <button className='focus:shadow-none mt-16'>
-          <Image src={logo} alt='' />
-        </button>
-      </Link>
-      <div className='w-full mt-11 p-10 rounded-lg shadow-lg bg-app-profile'>
-        Profile
+    <main className='flex flex-1 flex-col w-full max-w-4xl mx-auto items-center -mt-20 pb-20'>
+      <Profile />
+      <div className='flex w-full justify-between mt-18'>
+        <span className='text-lg font-bold'>Publications</span>
+        <span className='text-app-span text-sm'>5 publications</span>
       </div>
+      <SearchBox className='mt-3' />
+      <PostsList className='mt-12' />
     </main>
   )
 }
-
-Home.getLayout = function getLayout(page: ReactElement) {
+Home.layout = PrimaryLayout
+/*Home.getLayout = function getLayout(page: ReactElement) {
   return <PrimaryLayout>{page}</PrimaryLayout>
-}
+}*/
 
 export default Home
