@@ -1,15 +1,7 @@
 import { HTMLAttributes } from 'react'
-import { PostCard } from './PostCard'
+import { issueProps } from '../../../lib/types/issues'
 
-interface issueProps {
-  id: number
-  number: number
-  created_at: string
-  created_at_from_now: string
-  title: string
-  body: string
-  comments: number
-}
+import { PostCard } from './PostCard'
 
 interface PostListProps extends HTMLAttributes<HTMLElement> {
   issues: issueProps[]
@@ -26,7 +18,7 @@ export const PostsList = ({ issues, className, ...props }: PostListProps) => {
           <PostCard
             key={index}
             title={post.title}
-            content={post.body}
+            content={post.bodyShortened}
             createdAt={post.created_at}
             createdAtFromNow={post.created_at_from_now}
           />

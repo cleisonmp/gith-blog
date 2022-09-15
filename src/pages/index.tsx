@@ -1,5 +1,5 @@
 //import { ReactElement } from 'react'
-import { useEffect } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { GetStaticProps } from 'next'
 
 import { NextPageWithLayout } from './page'
@@ -10,18 +10,9 @@ import removeMarkdown from 'remove-markdown'
 import { PrimaryLayout } from '../components/layouts/primary/'
 
 import { Profile } from '../components/common/Profile'
-import { SearchBox } from '../components/common/SearchBox'
 import { PostsList } from '../components/common/PostsList'
+import { issueProps } from '../lib/types/issues'
 
-interface issueProps {
-  id: number
-  number: number
-  created_at: string
-  created_at_from_now: string
-  title: string
-  body: string
-  comments: number
-}
 interface homeProps {
   user: {
     username: string
@@ -33,9 +24,27 @@ interface homeProps {
   issues: issueProps[]
 }
 const Home: NextPageWithLayout<homeProps> = ({ user, issues }) => {
+  const [searchValue, setSearchValue] = useState('')
+  const [issuesList, setIssuesList] = useState<issueProps[]>(issues)
+
   useEffect(() => {
     axios.get('')
   }, [])
+
+  const handleSearchOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const currentSearchValue = e.target.value
+    setSearchValue(currentSearchValue)
+    if (e.target.value.length === 0) {
+      setIssuesList(issues)
+    } else {
+      setIssuesList((state) => {
+        const newIssuesArray = state.filter((post) =>
+          post.body.includes(currentSearchValue),
+        )
+        return newIssuesArray
+      })
+    }
+  }
   return (
     <main className='flex flex-1 flex-col w-full max-w-4xl mx-auto items-center -mt-20 pb-20'>
       <Profile user={user} />
@@ -43,8 +52,15 @@ const Home: NextPageWithLayout<homeProps> = ({ user, issues }) => {
         <span className='text-lg font-bold'>Publications</span>
         <span className='text-app-span text-sm'>5 publications</span>
       </div>
-      <SearchBox className='mt-3' />
-      <PostsList issues={issues} className='mt-12' />
+
+      <input
+        type='text'
+        value={searchValue}
+        onChange={handleSearchOnChange}
+        placeholder='Search content'
+        className='mt-3 w-full bg-app-input p-3 border border-app-border rounded-lg placeholder-app-label'
+      />
+      <PostsList issues={issuesList} className='mt-12' />
     </main>
   )
 }
@@ -88,12 +104,13 @@ export const getStaticProps: GetStaticProps = async () => {
             addSuffix: true,
           }) ?? '',
         title: issue.title ?? '',
-        body: removeMarkdown(issue.body).substring(0, 175) + '...' ?? '',
+        bodyShortened:
+          removeMarkdown(issue.body).substring(0, 175) + '...' ?? '',
+        body: issue.body ?? '',
         comments: issue.comments ?? 0,
       }
     },
   )
-  console.log(issues)
 
   return {
     props: {
