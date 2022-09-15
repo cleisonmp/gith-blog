@@ -1,16 +1,14 @@
 <h2>Github Blog</h2>
-<pre>
-Coding challenge from [@rocketseat](https://github.com/rocketseat), posts come from this repo issues.
 
-</pre>
+Coding challenge from [@rocketseat](https://github.com/rocketseat), posts come from this repo issues.
 
 <h3>:eye_speech_bubble: Live demo</h3>
 
 Check live demonstration [here](https://github-blog-black.vercel.app/)
 
-## :package::wrench:
+## :package::wrench: Built With
 
-- [Next.Js]
+- [Next.Js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
