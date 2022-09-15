@@ -1,29 +1,27 @@
-<h2>Next.js app template</h2>
+<h2>Github Blog</h2>
 <pre>
-This is a base template for Next.js apps with my preferred base settings.
+Coding challenge from [@rocketseat](https://github.com/rocketseat), posts come from this repo issues.
 
 </pre>
 
 <h3>:eye_speech_bubble: Live demo</h3>
 
-Check live demonstration [here](https://cleisonmp-nextjs-template.vercel.app/)
+Check live demonstration [here](https://github-blog-black.vercel.app/)
 
 ## :package::wrench:
 
+- [Next.Js]
 - [TypeScript](https://www.typescriptlang.org/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
-- [Husky Git Hooks](https://typicode.github.io/husky/#/)
-- [Debugging](https://nextjs.org/docs/advanced-features/debugging)
-- [Storybook](https://storybook.js.org/)
-- [Layouts](https://nextjs.org/docs/basic-features/layouts)
 - [Tailwindcss](https://tailwindcss.com/)
-- Component Template
+- [Axios](https://axios-http.com/)
+- [React Markdown](https://remarkjs.github.io/react-markdown/)
 
 ## 🚀 Clone
 
 ```bash
-git@github.com:cleisonmp/nextjs-template.git`
+git@github.com:cleisonmp/gith-blog.git`
 ```
 
 ```bash
@@ -32,6 +30,13 @@ yarn install
 yarn dev
 ```
 
+## Author
+
+👤 **Cleison Pereira**
+
+- GitHub: [@cleisonmp](https://github.com/cleisonmp)
+- LinkedIn: [Cleison Pereira](https://www.linkedin.com/in/cleison-pereira-00582639/)
+
 ## 📝 Acknowlegements
 
-- Based on [@alexeagleson](https://github.com/alexeagleson) template's
+- Layout [Figma](https://www.figma.com/community/file/1138814951106121051)
