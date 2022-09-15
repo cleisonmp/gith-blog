@@ -1,4 +1,4 @@
-export interface issueProps {
+export interface IssueProps {
   id: number
   number: number
   created_at: string

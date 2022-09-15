@@ -5,3 +5,35 @@
 * {
   @apply focus:outline-none focus:shadow-outline focus:shadow-blue-500;
 }
+
+@layer utilities {
+  .articleStyle a {
+    @apply text-app-primary hover:underline;
+  }
+  .articleStyle strong {
+    @apply text-xl font-bold;
+  }
+  .articleStyle h1 {
+    @apply text-4xl font-bold text-app-title;
+  }
+  .articleStyle h2 {
+    @apply text-3xl font-bold text-app-title;
+  }
+  .articleStyle h3 {
+    @apply text-2xl font-bold text-app-title;
+  }
+  .articleStyle h4,
+  h5,
+  h6 {
+    @apply text-lg font-bold text-app-title;
+  }
+  .articleStyle pre {
+    @apply bg-app-post;
+  }
+  .articleStyle ul {
+    @apply ml-6;
+  }
+  .articleStyle li {
+    @apply list-disc;
+  }
+}
