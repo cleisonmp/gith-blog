@@ -11,7 +11,7 @@ import { PrimaryLayout } from '../components/layouts/primary/'
 
 import { Profile } from '../components/common/Profile'
 import { PostsList } from '../components/common/PostsList'
-import { issueProps } from '../lib/types/issues'
+import { IssueProps } from '../lib/types/issues'
 
 interface homeProps {
   user: {
@@ -20,12 +20,13 @@ interface homeProps {
     avatarUrl: string
     company: string
     followers: number
+    bio: string
   }
-  issues: issueProps[]
+  issues: IssueProps[]
 }
 const Home: NextPageWithLayout<homeProps> = ({ user, issues }) => {
   const [searchValue, setSearchValue] = useState('')
-  const [issuesList, setIssuesList] = useState<issueProps[]>(issues)
+  const [issuesList, setIssuesList] = useState<IssueProps[]>(issues)
 
   useEffect(() => {
     axios.get('')
@@ -50,7 +51,9 @@ const Home: NextPageWithLayout<homeProps> = ({ user, issues }) => {
       <Profile user={user} />
       <div className='flex w-full justify-between mt-18'>
         <span className='text-lg font-bold'>Publications</span>
-        <span className='text-app-span text-sm'>5 publications</span>
+        <span className='text-app-span text-sm'>
+          {issuesList.length} publications
+        </span>
       </div>
 
       <input
@@ -90,10 +93,11 @@ export const getStaticProps: GetStaticProps = async () => {
     avatarUrl: userResponse.avatar_url ?? '',
     company: userResponse.company ?? '',
     followers: userResponse.followers ?? 0,
+    bio: userResponse.bio ?? '',
   }
 
-  const issues: issueProps[] = issuesResponse?.items?.map(
-    (issue: issueProps) => {
+  const issues: IssueProps[] = issuesResponse?.items?.map(
+    (issue: IssueProps) => {
       const issueDate = new Date(issue.created_at)
       return {
         id: issue.id ?? 0,
@@ -117,6 +121,6 @@ export const getStaticProps: GetStaticProps = async () => {
       user,
       issues,
     },
-    revalidate: 60 * 60 * 6, // 6 hours
+    revalidate: 60 * 60 * 24, // 24 hours
   }
 }

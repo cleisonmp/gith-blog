@@ -11,6 +11,7 @@ interface ProfileProps extends HTMLAttributes<HTMLElement> {
     avatarUrl: string
     company: string
     followers: number
+    bio: string
   }
 }
 export const Profile = ({ user, className, ...props }: ProfileProps) => {
@@ -43,11 +44,7 @@ export const Profile = ({ user, className, ...props }: ProfileProps) => {
               </button>
             </a>
           </div>
-          <span className='flex mt-2 text-app-span'>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </span>
+          <span className='flex mt-2 text-app-span'>{user.bio}</span>
         </div>
         <div className='flex gap-7 text-app-span'>
           <div className='flex items-center gap-2'>

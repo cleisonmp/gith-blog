@@ -11,7 +11,7 @@ export const PostCard = ({
   createdAtFromNow,
 }: PostCardProps) => {
   return (
-    <div className='flex flex-col max-h-64 overflow-hidden p-8 gap-5 rounded-lg shadow-lg bg-app-post hover:cursor-pointer'>
+    <div className='flex flex-col h-64 overflow-hidden p-8 gap-5 rounded-lg shadow-lg bg-app-post hover:cursor-pointer'>
       <div className='flex items-start justify-between'>
         <h3 className='flex w-[75%] text-xl font-bold leading-relaxed'>
           {title}
